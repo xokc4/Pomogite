@@ -9,16 +9,27 @@ namespace Pomogite
     /// <summary>
     /// наследует конструктор и поля  от ClassPeople, класс для студентов
     /// </summary>
-    class Student : ClassPeople, PeopleInterfeis
+  public  class Student : ClassPeople, IPeople
     {
-        //наследуемый коструктор для студента 
-        public Student(string name, string lastName, int age, int salary) : base(name, lastName, age, salary)
+        public Student()
         {
+
         }
-        //наследуемый вывод
-        public override string ToString()
+        public Student(string name, string lastName, int age, int salary, int idDepart) : base(name, lastName, age, salary, idDepart)
         {
-            return base.ToString();
+            this.Name = name;
+            this.LastName = lastName;
+            this.Age = age;
+            this.Salary = SalaryWorks();
+            this.IdDepart = idDepart;
+        }
+
+        //наследуемый коструктор для студента 
+
+        //наследуемый вывод
+        public new string ToString()
+        {
+            return  $"имя студента: {Name} Фамилия: {LastName} Возраст: {Age} зарплата: {Salary} айди: {IdDepart}";
         }
     }
 }

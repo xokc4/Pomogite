@@ -9,26 +9,33 @@ namespace Pomogite.PeoplePost
     /// <summary>
     /// наследует конструктор и поля  от ClassPeople, класс для директора
     /// </summary>
-    class DirectorCompany : ClassPeople, PeopleInterfeis
+  public  class DirectorCompany : ClassPeople, IPeople
     {
         //наследуемый конструктор 
-        public DirectorCompany(string name, string lastName, int age, int salary) : base(name, lastName, age, salary)
+
+        public DirectorCompany(string name, string lastName, int age, int salary, int idDepart) : base(name, lastName, age, salary, idDepart)
         {
             this.Name = name;
             this.LastName = lastName;
             this.Age = age;
             this.Salary = SalaryWorks();
+            this.IdDepart = idDepart;
         }
+        public DirectorCompany()
+        {
+
+        }
+        
         //зарплата директора
-         public new int SalaryWorks()
+        public new int SalaryWorks()
          {
 
             return 10000000;
          }
         //наследуемый вывод
-        public override string ToString()
+        public new  string ToString()
         {
-            return base.ToString();
+            return $"имя директора: {Name} Фамилия: {LastName} Возраст: {Age} зарплата: {Salary}";
         }
     }
 }

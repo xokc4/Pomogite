@@ -9,7 +9,7 @@ namespace Pomogite
     /// <summary>
     /// шаблон для работников, студентов , директор
     /// </summary>
-    class ClassPeople : PeopleInterfeis
+   public class ClassPeople : IPeople
     {
         //имя аботника
         public string Name { get; set; }
@@ -19,14 +19,21 @@ namespace Pomogite
         public int Age { get; set; }
         //зарплата работника
         public int Salary { get; set; }
+        //айди департамента
+        public  int IdDepart { get; set; }
 
+        public ClassPeople()
+        {
+
+        }
         //конструктор работника
-       public ClassPeople(string name, string lastName, int age, int salary)
+       public ClassPeople(string name, string lastName, int age, int salary, int idDepart)
         {
             this.Name = name;
             this.LastName = lastName;
             this.Age = age;
             this.Salary = SalaryWorks();
+            this.IdDepart = idDepart;
         }
 
         // зарплата студентов
@@ -62,7 +69,7 @@ namespace Pomogite
         //вывод информации
         public override string ToString()
         {
-            return $"имя:{Name} фамилия {LastName} возраст{Age} зарплата {Salary}";
+            return $"имя работника: {Name} Фамилия: {LastName} Возраст: {Age} зарплата: {Salary} айди: {IdDepart}";
         }
     }
 }

@@ -9,16 +9,23 @@ namespace Pomogite
     /// <summary>
     /// наследует конструктор и поля  от ClassPeople, класс для работника
     /// </summary>
-    class ClassWorker : ClassPeople, PeopleInterfeis
+   public class ClassWorker : ClassPeople, IPeople
     {
-        //конструктор наследования
-        public ClassWorker(string name, string lastName, int age, int salary) : base(name, lastName, age, salary)
+        public ClassWorker()
+        {
+
+        }
+        public ClassWorker(string name, string lastName, int age, int salary, int idDepart) : base(name, lastName, age, salary, idDepart)
         {
             this.Name = name;
             this.LastName = lastName;
             this.Age = age;
             this.Salary = SalaryWorks(salary);
+            this.IdDepart = idDepart;
         }
+
+        //конструктор наследования
+
         //вывод информации
         public override string ToString()
         {

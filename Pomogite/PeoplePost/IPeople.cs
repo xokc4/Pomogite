@@ -9,17 +9,8 @@ namespace Pomogite
     /// <summary>
     /// интерфейс работников 
     /// </summary>
-    interface PeopleInterfeis
+    interface IPeople
     {
-        //имя аботника
-        string Name { get; set; }
-        //фамилия работника
-        string LastName { get; set; }
-        //возраст работника
-        int Age { get; set; }
-        //зарплата работника
-        int Salary { get; set; }
-
         /// <summary>
         /// есть 3 метода по создании зарплаты 
         /// метод без переменных для студентов, метод  с одной переменной для работников, метод с двумя переменнами для начальника бюро

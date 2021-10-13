@@ -10,31 +10,36 @@ namespace Pomogite
     /// <summary>
     /// класс компании
     /// </summary>
-    class Company
+  public class Company
     {
         //имя компании
         public string NameCompany { get; set; }
-        //дата создания
-        public DateTime DateTime { get; set; }
-        //массив бюро
-        List<Bureu> Bureus { get; set; }
-        //массив департамента
-        List<Departament> Departaments { get; set; }
+      public List<Departament> Departaments { get; set; }
         //массив работников
-        List<ClassWorker> ClassWorkers { get; set; }
+        public List<ClassWorker> ClassWorkers { get; set; }
         //массив студентов
-        List<Student> Students { get; set; }
+        public List<Student> Students { get; set; }
         //директор компании
         public DirectorCompany Director { get; set; }
         //конструктор создания компании
 
-        public Company(string nameCompany, DateTime dateTime, List<Bureu> bureus, List<Departament> departaments, List<ClassWorker> classWorkers, List<Student> students, DirectorCompany director) => 
-            (NameCompany, DateTime, Bureus, Departaments, ClassWorkers, Students, Director) =
-            (nameCompany, dateTime, bureus, departaments, classWorkers, students, director);
+        public Company()
+        {
+
+        }
+        public Company(string nameCompany, List<Departament> departaments, List<ClassWorker> classWorkers, List<Student> students, DirectorCompany director)
+        {
+            this.NameCompany = nameCompany;
+            this.Departaments = departaments;
+            this.ClassWorkers = classWorkers;
+            this.Students = students;
+            this.Director = director;
+        }
+           
         //вывод информации
         public new string ToString()
         {
-            return $"Имя: {NameCompany} Дата создания: {DateTime}";
+            return $"Имя компании: {NameCompany}";
         }
 
     }

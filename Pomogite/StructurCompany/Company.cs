@@ -16,9 +16,7 @@ namespace Pomogite
         public string NameCompany { get; set; }
       public List<Departament> Departaments { get; set; }
         //массив работников
-        public List<ClassWorker> ClassWorkers { get; set; }
-        //массив студентов
-        public List<Student> Students { get; set; }
+
         //директор компании
         public DirectorCompany Director { get; set; }
         //конструктор создания компании
@@ -27,12 +25,11 @@ namespace Pomogite
         {
 
         }
-        public Company(string nameCompany, List<Departament> departaments, List<ClassWorker> classWorkers, List<Student> students, DirectorCompany director)
+        public Company(string nameCompany, List<Departament> departaments, DirectorCompany director)
         {
             this.NameCompany = nameCompany;
             this.Departaments = departaments;
-            this.ClassWorkers = classWorkers;
-            this.Students = students;
+            
             this.Director = director;
         }
            

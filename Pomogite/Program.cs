@@ -27,28 +27,42 @@ namespace Pomogite
             List<Company> company = DeserializeXml(path);
             //коллекция новой компании с изменеии зарплаты
             List<Company> companyPosle = new List<Company>();
-           
-            foreach(var item in company)// вывод компании
+
+            foreach (var item in company)// вывод компании
             {
                 Console.WriteLine(item.ToString());
                 Console.WriteLine(director.ToString());
-                foreach(var itemDepart in item.Departaments)// вывод департамента
+                foreach (var itemDepart in item.Departaments)// вывод департамента
                 {
                     Console.WriteLine(itemDepart.ToString());
-                    
-                    foreach(var itemWork in itemDepart.Workers)// вывод рабочик
+
+                    foreach (var itemWork in itemDepart.Workers)// вывод рабочик
                     {
                         Console.WriteLine(itemWork.ToString());
-                        workers.Add(new ClassWorker(itemWork.Name, itemWork.LastName, itemWork.Age, itemWork.Salary, itemWork.IdDepart));// запись работников
+                        if (itemDepart.ID == itemWork.IdDepart)
+                        {
+                            workers.Add(new ClassWorker(itemWork.Name, itemWork.LastName, itemWork.Age, itemWork.Salary, itemWork.IdDepart));// запись работников
+                        }
+                        if (itemDepart.ID > itemWork.IdDepart || itemDepart.ID > itemWork.IdDepart)
+                        {
+
+                        }
                     }
-                    foreach(var itemStud in itemDepart.Students)// вывод студентов
+                    foreach (var itemStud in itemDepart.Students)// вывод студентов
                     {
                         Console.WriteLine(itemStud.ToString());
-                        students.Add(new Student(itemStud.Name, itemStud.LastName, itemStud.Age, itemStud.Salary, itemStud.IdDepart));// запись студентов
+                        if (itemDepart.ID == itemStud.IdDepart)
+                        {
+                            students.Add(new Student(itemStud.Name, itemStud.LastName, itemStud.Age, itemStud.Salary, itemStud.IdDepart));// запись студентов
+                        }
+                        if (itemDepart.ID > itemStud.IdDepart || itemDepart.ID > itemStud.IdDepart)
+                        {
+
+                        }
                     }
                     departaments.Add(new Departament(itemDepart.NameDepartament, itemDepart.Quantity, workers, students, itemDepart.ID));// запись департаментов
                 }
-                companyPosle.Add(new Company(item.NameCompany, departaments, workers, students, item.Director));// запись компании
+                companyPosle.Add(new Company(item.NameCompany, departaments, item.Director));// запись компании
             } //вывод информации с файла
 
 
@@ -56,20 +70,32 @@ namespace Pomogite
             {
                 Console.WriteLine(neu.NameCompany);
                 Console.WriteLine(neu.Director.ToString());
-                foreach(var neuDep in neu.Departaments)//вывод департамента
+                foreach (var neuDep in neu.Departaments)//вывод департамента
                 {
                     Console.WriteLine(neuDep.ToString());
-                    foreach(var neuWork in neuDep.Workers)// вывод работников
+                    foreach (var neuWork in neuDep.Workers)// вывод работников
                     {
-                        
-                        Console.WriteLine(neuWork.ToString());
+                        if (neuDep.ID == neuWork.IdDepart)
+                        {
+                            Console.WriteLine(neuWork.ToString());// запись работников
+                        }
+                        if (neuDep.ID < neuWork.IdDepart || neuDep.ID > neuWork.IdDepart)
+                        {
+                        }
                     }
-                    foreach(var neuStud in neuDep.Students)// вывод студентов
+                    foreach (var neuStud in neuDep.Students)// вывод студентов
                     {
-                        Console.WriteLine(neuStud.ToString());
+                        if (neuDep.ID == neuStud.IdDepart)
+                        {
+                            Console.WriteLine(neuStud.ToString());
+                        }
+                        if (neuDep.ID < neuStud.IdDepart || neuDep.ID > neuStud.IdDepart)
+                        {
+                        }
                     }
                 }
             } // вывод новой компании 
+
         }
         public static List<Company> DeserializeXml(string path)// десериализации Xml
         {
@@ -89,6 +115,7 @@ namespace Pomogite
 
 
         }
+
     }
 }
 

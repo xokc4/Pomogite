@@ -1,4 +1,4 @@
-﻿using Pomogite.PeoplePost;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,20 +17,15 @@ namespace Pomogite
       public List<Departament> Departaments { get; set; }
         //массив работников
 
-        //директор компании
-        public DirectorCompany Director { get; set; }
         //конструктор создания компании
-
         public Company()
         {
 
         }
-        public Company(string nameCompany, List<Departament> departaments, DirectorCompany director)
+        public Company(string nameCompany, List<Departament> departaments)
         {
             this.NameCompany = nameCompany;
             this.Departaments = departaments;
-            
-            this.Director = director;
         }
            
         //вывод информации

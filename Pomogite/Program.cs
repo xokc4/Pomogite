@@ -1,4 +1,4 @@
-﻿using Pomogite.PeoplePost;
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +14,12 @@ namespace Pomogite
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            ImplementationСompany();
+
+        }
+
+        public static void ImplementationСompany()
+        {
             string path = @"Company.xml";
             //коллекция департаментов
             List<Departament> departaments = new List<Departament>();
@@ -21,8 +27,7 @@ namespace Pomogite
             List<Student> students = new List<Student>();
             //коллекция работников
             List<ClassWorker> workers = new List<ClassWorker>();
-            //директор
-            DirectorCompany director = new DirectorCompany();
+
             //коллекция компания с файлов 
             List<Company> company = DeserializeXml(path);
             //коллекция новой компании с изменеии зарплаты
@@ -31,7 +36,6 @@ namespace Pomogite
             foreach (var item in company)// вывод компании
             {
                 Console.WriteLine(item.ToString());
-                Console.WriteLine(director.ToString());
                 foreach (var itemDepart in item.Departaments)// вывод департамента
                 {
                     Console.WriteLine(itemDepart.ToString());
@@ -62,14 +66,13 @@ namespace Pomogite
                     }
                     departaments.Add(new Departament(itemDepart.NameDepartament, itemDepart.Quantity, workers, students, itemDepart.ID));// запись департаментов
                 }
-                companyPosle.Add(new Company(item.NameCompany, departaments, item.Director));// запись компании
+                companyPosle.Add(new Company(item.NameCompany, departaments));// запись компании
             } //вывод информации с файла
 
 
             foreach (var neu in companyPosle)// вывод компании
             {
                 Console.WriteLine(neu.NameCompany);
-                Console.WriteLine(neu.Director.ToString());
                 foreach (var neuDep in neu.Departaments)//вывод департамента
                 {
                     Console.WriteLine(neuDep.ToString());
@@ -95,7 +98,6 @@ namespace Pomogite
                     }
                 }
             } // вывод новой компании 
-
         }
         public static List<Company> DeserializeXml(string path)// десериализации Xml
         {

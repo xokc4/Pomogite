@@ -21,19 +21,21 @@ namespace Pomogite
         public int Salary { get; set; }
         //айди департамента
         public  int IdDepart { get; set; }
+        public int IdGetDep { get; set; }
 
         public ClassPeople()
         {
 
         }
         //конструктор работника
-       public ClassPeople(string name, string lastName, int age, int salary, int idDepart)
+       public ClassPeople(string name, string lastName, int age, int salary, int idDepart, int idGetDep)
         {
             this.Name = name;
             this.LastName = lastName;
             this.Age = age;
             this.Salary = SalaryWorks();
             this.IdDepart = idDepart;
+            this.IdDepart = idGetDep;
         }
 
         // зарплата студентов
@@ -69,7 +71,7 @@ namespace Pomogite
         //вывод информации
         public override string ToString()
         {
-            return $"имя работника: {Name} Фамилия: {LastName} Возраст: {Age} зарплата: {Salary} айди: {IdDepart}";
+            return $"имя работника: {Name} Фамилия: {LastName} Возраст: {Age} зарплата: {Salary} айди: {IdDepart} айдиДеп: {IdGetDep}";
         }
     }
 }

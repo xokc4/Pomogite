@@ -19,10 +19,12 @@ namespace Pomogite
         public List<ClassWorker> Workers { get; set; }
         //массив с студентами 
         public List<Student> Students { get; set; }
-
+        // айди департамента
         public int ID { get; set; }
+        // вложенность департамента
+        public int IdGetDep { get; set; }
         //конструктор департамента
-        public Departament(string nameDepartament, int quantity, List<ClassWorker> workers, List<Student> students, int id) => (NameDepartament, Quantity, Workers, Students, ID) = (nameDepartament, quantity, workers, students, id);
+        public Departament(string nameDepartament, int quantity, List<ClassWorker> workers, List<Student> students, int id, int idGetDep) => (NameDepartament, Quantity, Workers, Students, ID, IdGetDep) = (nameDepartament, quantity, workers, students, id, idGetDep);
 
         public Departament()
         {
@@ -31,7 +33,7 @@ namespace Pomogite
         //вывод информации
         public new string ToString()
         {
-            return $"Имя департамента: {NameDepartament} количество сотрудников: {Quantity}";
+            return $"Имя департамента: {NameDepartament} количество сотрудников: {Quantity} вложенность департамента: {IdGetDep}";
         }
     }
 }

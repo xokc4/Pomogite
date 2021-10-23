@@ -12,9 +12,12 @@ namespace Pomogite
         {
             //путь файла
             string path = @"Company.xml";
-            //метод по выводу компании
-            AppImplement.ImplementationСompany(path);
-
+                
+            Company company = new Company(path);
+            //вывод компании с файла
+            company.PrintOld();
+            // вывод измененной компании
+            company.PrintNew();
         }
     }
 }
